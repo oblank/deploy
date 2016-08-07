@@ -16,6 +16,6 @@ RUN mkdir -p /data /data/db && chmod 777 -R /data/db
 ADD run.sh /run.sh
 ADD set_mongodb_password.sh /set_mongodb_password.sh
 
-EXPOSE 27017 28017
+EXPOSE 27017
 
 CMD ["/run.sh"]
