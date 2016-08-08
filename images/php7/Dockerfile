@@ -23,6 +23,11 @@ RUN sed -E -i "s/^error_reporting\ .+?$/error_reporting\ =\ E_ALL\ \&\ \~E_DEPRE
 ADD ./ext/*.ini /etc/php.d/
 ADD ./ext/*.so /usr/lib64/php/modules/
 
+#crontab
+RUN yum install -y vixie-cron
+RUN chkconfig --list crond
+RUN sed -E -i "s/account    required   pam_access.so/account    optional   pam_access.so/" /etc/pam.d/crond 
+
 RUN mkdir -p /data/www && chmod 777 -R /data/www
 RUN mkdir -p /data/logs /data/logs/php && chmod 777 -R /data
 
