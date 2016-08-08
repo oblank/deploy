@@ -3,7 +3,7 @@ set -m
 
 ENGINE=${STORAGE_ENGINE:-"wiredTiger"}
 
-mongodb_cmd="mongod --storageEngine $ENGINE --directoryperdb true"
+mongodb_cmd="mongod --storageEngine $ENGINE --directoryperdb"
 cmd="$mongodb_cmd --httpinterface --rest --master"
 if [ "$AUTH" == "yes" ]; then
     cmd="$cmd --auth"
