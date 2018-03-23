@@ -29,7 +29,7 @@ php:
         - "pp.pro.com:127.0.0.1"
     restart: always
 node:
-    image: daocloud.io/shuc/node6
+    image: daocloud.io/shuc/node8
     container_name: node
     ports:
         - "3014:3014"
