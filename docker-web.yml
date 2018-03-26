@@ -1,6 +1,6 @@
 nginx:
-    image: daocloud.io/shuc/nginx
-    container_name: nginx 
+    image: daocloud.io/oblank/nginx
+    container_name: nginx
     links:
         - php
         - node
@@ -8,20 +8,20 @@ nginx:
         - "80:80"
         - "443:443"
         - "8000:8000"
-    volumes: 
+    volumes:
         - /data/www/htdocs:/data/www
         - /data/logs/nginx:/var/log/nginx
         - ./volumes/nginx/sites:/etc/nginx/sites-enabled
         - ./volumes/nginx/includes:/etc/nginx/includes
     restart: always
 php:
-    image: daocloud.io/shuc/php7
+    image: daocloud.io/oblank/php
     container_name: php
     ports:
         - "9000:9000"
     links:
         - node
-    volumes: 
+    volumes:
         - /data/www/htdocs:/data/www
         - /data/logs/php:/data/logs/php
     extra_hosts:
@@ -29,7 +29,7 @@ php:
         - "pp.pro.com:127.0.0.1"
     restart: always
 node:
-    image: daocloud.io/shuc/node8
+    image: daocloud.io/oblank/node
     container_name: node
     ports:
         - "3014:3014"
