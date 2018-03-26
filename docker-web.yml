@@ -27,6 +27,7 @@ php:
     extra_hosts:
         - "db.pro.com:127.0.0.1"
         - "pp.pro.com:127.0.0.1"
+        - "api.pro.com:127.0.0.1"
     restart: always
 node:
     image: daocloud.io/oblank/node
